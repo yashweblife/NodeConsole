@@ -27,7 +27,7 @@ void OledHelper::line(int x, int y, int x1, int y1)
     d.drawLine(x, y, x1, y1, SSD1306_WHITE);
 }
 
-void OledHelper::circle(int x , int y , int r , bool fill)
+void OledHelper::circle(int x, int y, int r, bool fill)
 {
     if (fill)
     {
@@ -39,7 +39,7 @@ void OledHelper::circle(int x , int y , int r , bool fill)
     }
 }
 
-void OledHelper::rect(int x, int y , int w, int h, bool fill)
+void OledHelper::rect(int x, int y, int w, int h, bool fill)
 {
     if (fill)
     {
@@ -51,12 +51,12 @@ void OledHelper::rect(int x, int y , int w, int h, bool fill)
     }
 }
 
-void OledHelper::text(String t , int x , int y , float s , bool fill)
+void OledHelper::text(String t, int x, int y, float s, bool fill)
 {
     d.setTextSize(s); // Draw 2X-scale text
     if (fill == true)
     {
-        d.setTextColor(SSD1306_WHITE);
+        d.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
     }
     else
     {
@@ -78,4 +78,7 @@ void OledHelper::clear()
 void OledHelper::dim(bool val)
 {
     d.dim(val);
+}
+void OledHelper::rotate(int val){
+    d.setRotation(val);
 }
