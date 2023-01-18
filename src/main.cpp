@@ -1,9 +1,21 @@
-#include <Arduino.h>
+
+#include <OledHelper.h>
+#include<Controller.h>
+
+OledHelper oled;
+Controller lhs(14);
+Controller rhs(12);
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
+  if(!oled.setup_oled()){
+    for(;;){}
+  }
+  oled.clear();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  oled.clear();
+  oled.text("LHS:  "+String(lhs.getValue())+"\nRHS:  "+String(rhs.getValue()));
+  oled.show();
 }
