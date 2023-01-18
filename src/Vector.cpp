@@ -7,12 +7,14 @@ Vector::Vector()
     y = 0;
     z = 0;
 }
-Vector::Vector(float x, float y)
+
+Vector::Vector(int x, int y, int z)
 {
     this->x = x;
     this->y = y;
-    this->z = 0;
+    this->z = z;
 }
+
 Vector::Vector(float x, float y, float z)
 {
     this->x = x;
@@ -42,36 +44,45 @@ void Vector::scalar(float num)
     z *= num;
 }
 
-void Vector::normalize(){
+void Vector::normalize()
+{
     const float mag = getMag();
-    x/=mag;
-    y/=mag;
-    z/=mag;
+    x /= mag;
+    y /= mag;
+    z /= mag;
 }
 
-void Vector::setMag(float val){
+float Vector::dist(Vector vec)
+{
+    return (sqrt(pow(x - vec.x, 2) + pow(y - vec.y, 2) + pow(z - vec.z, 2)));
+}
+
+void Vector::setMag(float val)
+{
     normalize();
     scalar(val);
 }
 
-void Vector::rotateX(float val){
-    float _y = y*cos(val) - z*sin(val);
-    float _z = y*sin(val) + z*cos(val);
-    this->y=_y;
-    this->z=_z;
+void Vector::rotateX(float val)
+{
+    float _y = y * cos(val) - z * sin(val);
+    float _z = y * sin(val) + z * cos(val);
+    this->y = _y;
+    this->z = _z;
 }
 
-void Vector::rotateY(float val){
-    float _x = x*cos(val) + z*sin(val);
-    float _z = x*sin(val) - z*cos(val);
-    this->x=_x;
-    this->z=_z;
+void Vector::rotateY(float val)
+{
+    float _x = x * cos(val) + z * sin(val);
+    float _z = x * sin(val) - z * cos(val);
+    this->x = _x;
+    this->z = _z;
 }
 
-void Vector::rotateZ(float val){
-    float _x = x*cos(val) - y*sin(val);
-    float _y = x*sin(val) + y*cos(val);
-    this->x=_x;
-    this->y=_y;
+void Vector::rotateZ(float val)
+{
+    float _x = x * cos(val) - y * sin(val);
+    float _y = x * sin(val) + y * cos(val);
+    this->x = _x;
+    this->y = _y;
 }
-
