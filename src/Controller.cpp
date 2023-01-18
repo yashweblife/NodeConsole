@@ -4,14 +4,13 @@
 Controller::Controller(){}
 Controller::Controller(int val){
     pin=val;
+    pinMode(pin,OUTPUT);
 }
 Controller::Controller(int val, int _min, int _max){
     pin=val;
+    pinMode(pin,OUTPUT);
     minVal=_min;
     maxVal=_max;
-}
-void Controller::setPin(int val){
-    pin=val;
 }
 void Controller::setMin(float val){
     minVal=val;
