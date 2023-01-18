@@ -80,7 +80,9 @@ bool Ball::checkCollisionWithBall(Ball b) {
     }
     return(false);
 }
-bool Ball::checkCollisionWithBox() {}
+bool Ball::checkCollisionWithBox() {
+    return(false);
+}
 void Ball::draw(OledHelper *oled) {
     oled->circle(pos.x,pos.y,size);
 }
