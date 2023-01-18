@@ -10,7 +10,6 @@ public:
     int pin = 14;
     float minVal = 0;
     float maxVal = 1024;
-    void setPin(int val);
     void setMin(float val);
     void setMax(float val);
     float getValue();
