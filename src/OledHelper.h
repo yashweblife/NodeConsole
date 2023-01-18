@@ -18,6 +18,7 @@ class OledHelper
         void show(void);
         void clear(void);
         void dim(bool val=true);
+        void rotate(int val=2);
     private:
         Adafruit_SSD1306 d;
 };
