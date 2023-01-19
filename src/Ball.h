@@ -19,11 +19,11 @@ public:
     void setPos(int x, int y);
     void setVel(int x, int y);
     void setAcc(int x, int y);
-    void reverseVel(bool comp=false);
+    void reverseVel(bool comp = false);
     int bound(int x = 0, int y = 0, int dx = 128, int dy = 64);
     bool checkCollisionWithBall(Ball b);
     bool checkCollisionWithBox();
-    void draw(OledHelper *oled);
+    void draw(OledHelper &oled, bool fill = false);
     void update();
 };
 
