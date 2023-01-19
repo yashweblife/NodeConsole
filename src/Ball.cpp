@@ -74,19 +74,24 @@ int Ball::bound(int x, int y, int dx, int dy)
     }
     return (0);
 }
-bool Ball::checkCollisionWithBall(Ball b) {
-    if(pos.dist(b.pos)<size+b.size){
-        return(true);
+bool Ball::checkCollisionWithBall(Ball b)
+{
+    if (pos.dist(b.pos) < size + b.size)
+    {
+        return (true);
     }
-    return(false);
+    return (false);
 }
-bool Ball::checkCollisionWithBox() {
-    return(false);
+bool Ball::checkCollisionWithBox()
+{
+    return (false);
 }
-void Ball::draw(OledHelper *oled) {
-    oled->circle(pos.x,pos.y,size);
+void Ball::draw(OledHelper &oled, bool fill)
+{
+    oled.circle(pos.x, pos.y, size, fill);
 }
-void Ball::update() {
+void Ball::update()
+{
     vel.add(acc);
     pos.add(vel);
     acc.scalar(0);
