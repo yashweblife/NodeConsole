@@ -79,6 +79,7 @@ void OledHelper::dim(bool val)
 {
     d.dim(val);
 }
-void OledHelper::rotate(int val){
+void OledHelper::rotate(int val)
+{
     d.setRotation(val);
 }
