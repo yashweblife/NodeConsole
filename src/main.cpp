@@ -34,7 +34,10 @@ void setup()
     {
     }
   }
+  oled.clear();
   oled.rotate();
+  oled.bitmap(0,0,16,16,fighter);
+  oled.show();
 }
 
 void pong()
