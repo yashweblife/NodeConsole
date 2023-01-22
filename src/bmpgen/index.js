@@ -48,7 +48,7 @@ class Grid {
                     output+="0"
                 }
             }
-            output+="\n"
+            output+=",\n"
         }
         output+="};"
         return(output)
