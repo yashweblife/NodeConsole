@@ -15,6 +15,7 @@ public:
     void circle(int x = 0, int y = 0, int r = 10, bool fill = false);
     void rect(int x = 0, int y = 0, int w = 10, int h = 10, bool fill = false);
     void text(String t = "", int x = 0, int y = 0, float s = 1, bool fill = false);
+    void bitmap(int x, int y, int w, int h, const uint8_t *image);
     void show(void);
     void clear(void);
     void dim(bool val = true);

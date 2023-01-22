@@ -66,6 +66,11 @@ void OledHelper::text(String t, int x, int y, float s, bool fill)
     d.println(t);
 }
 
+void OledHelper::bitmap(int x, int y, int w, int h, const uint8_t *image)
+{
+    d.drawBitmap(x, y, image, w, h, 1);
+}
+
 void OledHelper::show()
 {
     d.display();
