@@ -1,6 +1,10 @@
 #ifndef Vector_h
 #define Vector_h
 #include <Arduino.h>
+
+/**
+ * @brief Vector class to store position data 
+ */
 class Vector
 {
 public:
@@ -13,8 +17,8 @@ public:
     float getMag();
     void add(Vector vec);
     void sub(Vector vec);
-    void scalar(float num);
     void normalize();
+    void scalar(float num);
     float dist(Vector vec);
     void setMag(float num);
     void rotateX(float num);

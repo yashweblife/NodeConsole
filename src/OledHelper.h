@@ -4,7 +4,10 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_SSD1306.h>
-
+/**
+ * @brief Oled Helper takes care of the display by abstrascting away the extra lines
+ * 
+ */
 class OledHelper
 {
 public:
