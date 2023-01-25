@@ -78,15 +78,15 @@ int Ball::bound(int x, int y, int dx, int dy)
     }
     return (0);
 }
-bool Ball::checkCollisionWithBall(Ball &b)
+bool Ball::checkCollisionWithBall(float x1,float y1, float rad)
 {
-    if (pos.dist(b.pos) < radius + b.radius)
+    if (pos.distanceV1(x1,y1) < radius + rad)
     {
         return (true);
     }
     return (false);
 }
-bool Ball::checkCollisionWithBox(Box &b)
+bool Ball::checkCollisionWithBox(float x1, float y1, float dx, float dy)
 {
     return (false);
 }

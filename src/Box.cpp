@@ -77,15 +77,27 @@ int Box::bound(int x, int y, int dx, int dy)
     }
     return (0);
 }
-bool Box::checkCollisionWithBall(Ball b)
+bool Box::checkCollisionWithBall(float x1, float y1, float rad)
 {
-    if (b.pos.x - b.size < pos.x + size.x && b.pos.x + b.size > pos.x && b.pos.y - b.size < pos.y + size.y && b.pos.y + b.size > pos.y)
+    if (pos.distanceV1(x1, y1) < radius + rad)
+    {
+        return (true);
+    }
+    return (false);
+    // if (b.pos.x - b.size < pos.x + size.x && b.pos.x + b.size > pos.x && b.pos.y - b.size < pos.y + size.y && b.pos.y + b.size > pos.y)
+    // {
+    //     return (true);
+    // }
+    // return (false);
+}
+bool Box::checkCollisionWithBox(float x1, float y1, float dx, float dy)
+{
+    if (pos.x < x1 + dx && pos.x + size.x > x1 && pos.y < y1 + dy && pos.y + size.y > y1)
     {
         return (true);
     }
     return (false);
 }
-bool Box::checkCollisionWithBox(Box b) {}
 void Box::draw(OledHelper &oled, bool fill)
 {
     oled.rect(pos.x, pos.y, size.x, size.y, fill);
