@@ -6,24 +6,23 @@ OledHelper oled;
 Controller lhs(14);
 Controller rhs(12);
 
-static const unsigned char PROGMEM fighter[]=
-{ 0b00000010, 0b01000000,
-  0b00000110, 0b01100000,
-	0b00001110, 0b01110000,
-	0b00001100, 0b00110000,
-	0b00011001, 0b10011000,
-	0b00011001, 0b10011000,
-	0b00011100, 0b00111000,
-	0b00011110, 0b01111000,
-	0b00111111, 0b11111100,
-	0b00111111, 0b11111100,
-	0b00101101, 0b10110100,
-	0b00100101, 0b10100100,
-	0b00110001, 0b10001100,
-	0b00111111, 0b11111100,
-	0b00110111, 0b11101100,
-	0b00010000, 0b00001000
-};
+static const unsigned char PROGMEM fighter[] =
+    {0b00000010, 0b01000000,
+     0b00000110, 0b01100000,
+     0b00001110, 0b01110000,
+     0b00001100, 0b00110000,
+     0b00011001, 0b10011000,
+     0b00011001, 0b10011000,
+     0b00011100, 0b00111000,
+     0b00011110, 0b01111000,
+     0b00111111, 0b11111100,
+     0b00111111, 0b11111100,
+     0b00101101, 0b10110100,
+     0b00100101, 0b10100100,
+     0b00110001, 0b10001100,
+     0b00111111, 0b11111100,
+     0b00110111, 0b11101100,
+     0b00010000, 0b00001000};
 
 void setup()
 {
@@ -34,10 +33,7 @@ void setup()
     {
     }
   }
-  oled.clear();
-  oled.rotate();
-  oled.bitmap(0,0,16,16,fighter);
-  oled.show();
+
 }
 
 void pong()
@@ -47,20 +43,21 @@ void pong()
   Ball ball(64, 32);
   ball.setSize(3);
   ball.setVel(1, 1);
-  Box player1(10,20);
+  Box player1(10, 20);
   player1.setPos(0, 32 - 10);
 
-  Box player2(10,20);
+  Box player2(10, 20);
   player2.setPos(128 - 10, 32 - 10);
-  for(int i=0;i<3;i++){
-  oled.clear();
-  oled.text("Pong",10,10,2,true);
-  oled.text(String(3-i),30,35 ,2,true);
-  delay(1000);
-  oled.show();
+  for (int i = 0; i < 3; i++)
+  {
+    oled.clear();
+    oled.text("Pong", 10, 10, 2, true);
+    oled.text(String(3 - i), 30, 35, 2, true);
+    delay(1000);
+    oled.show();
   }
   oled.clear();
-  oled.text("Go",10,10,2,true);
+  oled.text("Go", 10, 10, 2, true);
   oled.show();
   delay(1000);
   while (game_mode == true)
@@ -76,7 +73,7 @@ void pong()
     int bound_check = ball.bound();
     ball.update();
 
-    if (player1.checkCollisionWithBall(ball) || player2.checkCollisionWithBall(ball))
+    if (player1.checkCollisionWithBall(ball.pos.x, ball.pos.y, ball.radius) || player2.checkCollisionWithBall(ball.pos.x, ball.pos.y, ball.radius))
     {
       ball.reverseVel(true);
     }
@@ -99,10 +96,13 @@ void pong()
   }
   delay(500);
   oled.clear();
-  if(winner){
-    oled.text("Player 2 Wins",20,20,1.5,true);
-  }else{
-    oled.text("Player 1 Wins",20,20,1.5,true);
+  if (winner)
+  {
+    oled.text("Player 2 Wins", 20, 20, 1.5, true);
+  }
+  else
+  {
+    oled.text("Player 1 Wins", 20, 20, 1.5, true);
   }
   oled.show();
   delay(2000);
@@ -110,4 +110,10 @@ void pong()
 
 void loop()
 {
+  int p1 = map(rhs.getValue(), 137, 238, 0, 128);
+  int p2 = map(lhs.getValue(), 209, 6, 0, 64);
+    oled.clear();
+  oled.rotate();
+  oled.bitmap(p1,p2, 16, 16, fighter);
+  oled.show();
 }

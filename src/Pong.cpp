@@ -22,7 +22,7 @@ void Pong::update(int p1_pos, int p2_pos)
         lhs.setPos(0, p1_pos);
         rhs.setPos(128 - rhs.size.x, p2_pos);
         b.bound(0, 0, 128, 64);
-        if (lhs.checkCollisionWithBall(b) || rhs.checkCollisionWithBall(b))
+        if (lhs.checkCollisionWithBall(b.pos.x, b.pos.y, b.radius) || rhs.checkCollisionWithBall(b.pos.x, b.pos.y, b.radius))
         {
             b.reverseVel(true);
         }
