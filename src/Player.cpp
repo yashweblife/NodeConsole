@@ -59,10 +59,12 @@ void Player::update()
     vel.add(acc);
     pos.add(vel);
 }
-float Player::distance(Vector v) {}
+float Player::distance(Vector v) {
+    
+}
 bool Player::checkCollisionWithBall(Ball &b)
 {
-    if (distance(b.pos) < radius + b.size)
+    if (pos.distance(b.pos) < radius + b.radius)
     {
         return (true);
     }
