@@ -12,6 +12,7 @@ public:
     Vector vel;
     Vector acc;
     Vector size;
+    float radius;
 
     Box();
     Box(int start_x, int start_y);
@@ -21,8 +22,8 @@ public:
     void setAcc(int x, int y);
     void reverseVel(bool comp = false);
     int bound(int x = 0, int y = 0, int dx = 128, int dy = 64);
-    bool checkCollisionWithBall(Ball b);
-    bool checkCollisionWithBox(Box b);
+    bool checkCollisionWithBall(float x1, float y1, float rad);
+    bool checkCollisionWithBox(float x1, float y1, float dx, float dy);
     void draw(OledHelper &oled, bool fill = false);
     void update();
 };

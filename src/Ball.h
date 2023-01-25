@@ -21,8 +21,8 @@ public:
     void setAcc(float x, float y);
     void reverseVel(bool comp = false);
     int bound(int x = 0, int y = 0, int dx = 128, int dy = 64);
-    bool checkCollisionWithBall(Ball &b);
-    bool checkCollisionWithBox(Box &b);
+    bool checkCollisionWithBall(float x1, float y1, float rad);
+    bool checkCollisionWithBox(float x1, float y1, float dx, float dy);
     void draw(OledHelper &oled, bool fill = false);
     void update();
 };
