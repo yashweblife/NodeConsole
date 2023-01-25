@@ -15,7 +15,7 @@ public:
     void sub(Vector vec);
     void scalar(float num);
     void normalize();
-    float dist(Vector vec);
+    float distance(Vector vec);
     void setMag(float num);
     void rotateX(float num);
     void rotateY(float num);

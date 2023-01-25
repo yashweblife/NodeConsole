@@ -52,7 +52,7 @@ void Vector::normalize()
     z /= mag;
 }
 
-float Vector::dist(Vector vec)
+float Vector::distance(Vector vec)
 {
     return (sqrt(pow(x - vec.x, 2) + pow(y - vec.y, 2) + pow(z - vec.z, 2)));
 }
