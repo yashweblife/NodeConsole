@@ -130,3 +130,8 @@ void Vector::rotateZ(float val)
     this->x = _x;
     this->y = _y;
 }
+
+float Vector::distanceV1(float x1, float y1)
+{
+    return (sqrt(pow(x - x1, 2) + pow(y - y1, 2)));
+}

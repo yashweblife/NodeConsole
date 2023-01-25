@@ -19,10 +19,12 @@ public:
     void sub(Vector vec);
     void normalize();
     void scalar(float num);
-    float dist(Vector vec);
+    void normalize();
+    float distance(Vector vec);
     void setMag(float num);
     void rotateX(float num);
     void rotateY(float num);
     void rotateZ(float num);
+    float distanceV1(float x, float y);
 };
 #endif
