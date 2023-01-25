@@ -73,7 +73,7 @@ void pong()
     int bound_check = ball.bound();
     ball.update();
 
-    if (player1.checkCollisionWithBall(ball) || player2.checkCollisionWithBall(ball))
+    if (player1.checkCollisionWithBall(ball.pos.x, ball.pos.y, ball.radius) || player2.checkCollisionWithBall(ball.pos.x, ball.pos.y, ball.radius))
     {
       ball.reverseVel(true);
     }
