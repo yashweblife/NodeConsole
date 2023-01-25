@@ -20,5 +20,6 @@ public:
     void rotateX(float num);
     void rotateY(float num);
     void rotateZ(float num);
+    float distanceV1(float x, float y);
 };
 #endif
