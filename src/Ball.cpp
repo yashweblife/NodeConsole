@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <Ball.h>
+#include <Box.h>
 #include <Vector.h>
 #include <OledHelper.h>
 
@@ -15,21 +16,24 @@ Ball::Ball(int start_x, int start_y)
     vel = Vector(0, 0, 0);
     acc = Vector(0, 0, 0);
 }
-void Ball::setSize(int x)
+void Ball::setSize(float x)
 {
-    size = x;
+    radius = x;
+    size.x = x / 2;
+    size.y = x / 2;
 }
-void Ball::setPos(int x, int y)
+
+void Ball::setPos(float x, float y)
 {
     pos.x = x;
     pos.y = y;
 }
-void Ball::setVel(int x, int y)
+void Ball::setVel(float x, float y)
 {
     vel.x = x;
     vel.y = y;
 }
-void Ball::setAcc(int x, int y)
+void Ball::setAcc(float x, float y)
 {
     acc.x = x;
     acc.y = y;
@@ -48,47 +52,47 @@ void Ball::reverseVel(bool comp)
 }
 int Ball::bound(int x, int y, int dx, int dy)
 {
-    if (pos.x < x + size)
+    if (pos.x < x + radius)
     {
-        pos.x = x + size;
+        pos.x = x + radius;
         reverseVel(true);
         return (1);
     }
-    if (pos.y < y + size)
+    if (pos.y < y + radius)
     {
-        pos.y = y + size;
+        pos.y = y + radius;
         reverseVel(false);
         return (2);
     }
-    if (pos.x > dx - size)
+    if (pos.x > dx - radius)
     {
-        pos.x = dx - size;
+        pos.x = dx - radius;
         reverseVel(true);
         return (3);
     }
-    if (pos.y > dy - size)
+    if (pos.y > dy - radius)
     {
-        pos.y = dy - size;
+        pos.y = dy - radius;
         reverseVel(false);
         return (4);
     }
     return (0);
 }
-bool Ball::checkCollisionWithBall(Ball b)
+bool Ball::checkCollisionWithBall(Ball &b)
 {
-    if (pos.dist(b.pos) < size + b.size)
+    if (pos.dist(b.pos) < radius + b.radius)
     {
         return (true);
     }
     return (false);
 }
-bool Ball::checkCollisionWithBox()
+bool Ball::checkCollisionWithBox(Box &b)
 {
     return (false);
 }
 void Ball::draw(OledHelper &oled, bool fill)
 {
-    oled.circle(pos.x, pos.y, size, fill);
+    oled.circle(pos.x, pos.y, radius, fill);
 }
 void Ball::update()
 {
