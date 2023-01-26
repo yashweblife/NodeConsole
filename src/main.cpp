@@ -1,3 +1,6 @@
+#include <ESP8266WiFi.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
 #include <OledHelper.h>
 #include <Controller.h>
 #include <Ball.h>
@@ -24,6 +27,9 @@ static const unsigned char PROGMEM fighter[] =
      0b00110111, 0b11101100,
      0b00010000, 0b00001000};
 
+WiFiUDP ntpUDP;
+NTPClient timer(ntpUDP, "pool.ntp.org", -21600);
+
 void setup()
 {
   Serial.begin(9600);
@@ -33,7 +39,21 @@ void setup()
     {
     }
   }
-
+  oled.rotate();
+  WiFi.begin("I hate you all", "n00dl3xyz");
+  oled.clear();
+  oled.text("Connecting to WiFi");
+  oled.show();
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+  }
+  oled.clear();
+  oled.text("Connected!");
+  oled.show();
+  delay(500);
+  oled.clear();
+  timer.begin();
 }
 
 void pong()
@@ -110,10 +130,11 @@ void pong()
 
 void loop()
 {
-  int p1 = map(rhs.getValue(), 137, 238, 0, 128);
-  int p2 = map(lhs.getValue(), 209, 6, 0, 64);
-    oled.clear();
-  oled.rotate();
-  oled.bitmap(p1,p2, 16, 16, fighter);
+  timer.update();
+  // int p1 = map(rhs.getValue(), 137, 238, 0, 128);
+  // int p2 = map(lhs.getValue(), 209, 6, 0, 64);
+  oled.clear();
+  oled.text(timer.getFormattedTime(), 0, 0, 1, false);
   oled.show();
+  delay(500);
 }
