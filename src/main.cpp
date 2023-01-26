@@ -33,7 +33,8 @@ void setup()
     {
     }
   }
-
+  oled.clear();
+  oled.rotate();
 }
 
 void pong()
@@ -112,8 +113,7 @@ void loop()
 {
   int p1 = map(rhs.getValue(), 137, 238, 0, 128);
   int p2 = map(lhs.getValue(), 209, 6, 0, 64);
-    oled.clear();
-  oled.rotate();
-  oled.bitmap(p1,p2, 16, 16, fighter);
+  oled.clear();
+  oled.bitmap(p1, p2, 16, 16, fighter);
   oled.show();
 }
