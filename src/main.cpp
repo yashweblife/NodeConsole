@@ -2,6 +2,8 @@
 #include <Controller.h>
 #include <Ball.h>
 #include <Box.h>
+#include <Text.h>
+
 OledHelper oled;
 Controller lhs(14);
 Controller rhs(12);
@@ -23,6 +25,8 @@ static const unsigned char PROGMEM fighter[] =
      0b00111111, 0b11111100,
      0b00110111, 0b11101100,
      0b00010000, 0b00001000};
+
+Text basic("Hello World");
 
 void setup()
 {
@@ -109,11 +113,20 @@ void pong()
   delay(2000);
 }
 
-void loop()
+void test()
 {
   int p1 = map(rhs.getValue(), 137, 238, 0, 128);
   int p2 = map(lhs.getValue(), 209, 6, 0, 64);
   oled.clear();
   oled.bitmap(p1, p2, 16, 16, fighter);
   oled.show();
+  basic.padding = 10;
+  basic.border_left = true;
+  oled.clear();
+  basic.draw(oled);
+  oled.text(String(basic.value), 20, 0, 1, false);
+  oled.show();
+}
+void loop()
+{
 }
