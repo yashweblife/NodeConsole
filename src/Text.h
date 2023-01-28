@@ -6,9 +6,16 @@
 
 class Text
 {
+    public:
     String value;
     Vector pos;
+    Vector size;
     int scale;
+    int padding;
+    bool border_left;
+    bool border_top;
+    bool border_right;
+    bool border_bottom;
     Text(String data);
     int getWidth();
     int getHeight();
