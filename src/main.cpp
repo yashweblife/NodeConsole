@@ -44,6 +44,5 @@ void setup()
 
 void loop()
 {
-  int p1 = map(rhs.getValue(), 137, 238, 0, 128);
-  int p2 = map(lhs.getValue(), 209, 6, 0, 64);
+
 }
