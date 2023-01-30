@@ -2,6 +2,8 @@
 #include <Controller.h>
 #include <Ball.h>
 #include <Box.h>
+#include <Text.h>
+
 OledHelper oled;
 Controller lhs(14);
 Controller rhs(12);
@@ -24,6 +26,10 @@ static const unsigned char PROGMEM fighter[] =
      0b00110111, 0b11101100,
      0b00010000, 0b00001000};
 
+Text basic("Hello World");
+Text t1("Home");
+Text t2("Time");
+Text t3("Pong");
 void setup()
 {
   Serial.begin(9600);
@@ -33,8 +39,15 @@ void setup()
     {
     }
   }
-  oled.clear();
   oled.rotate();
+  t1.setPos(2,2);
+  t2.setPos(2,12);
+  t3.setPos(2,24);
+
+  t1.setPadding(3);
+  t2.setPadding(3);
+  t3.setPadding(3);
+
 }
 
 void pong()
@@ -109,11 +122,20 @@ void pong()
   delay(2000);
 }
 
-void loop()
+void test()
 {
   int p1 = map(rhs.getValue(), 137, 238, 0, 128);
   int p2 = map(lhs.getValue(), 209, 6, 0, 64);
+}
+void loop()
+{
   oled.clear();
-  oled.bitmap(p1, p2, 16, 16, fighter);
+  int p1 = map(rhs.getValue(), 137, 238, 0,3);
+  t1.setBorderLeft(p1==0);
+  t2.setBorderLeft(p1==1);
+  t3.setBorderLeft(p1==2);
+  t1.draw(oled);
+  t2.draw(oled);
+  t3.draw(oled);
   oled.show();
 }
