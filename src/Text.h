@@ -21,16 +21,17 @@ class Text
     int getHeight();
     void setScale(int s);
     void setPos(int x, int y);
+    void setPadding(int val);
     void setValue(String data);
     void calculatePadding();
     void calculatePosition();
     void centerCut();
     void underline();
-    void setBorderLeft();
-    void setBorderRight();
-    void setBorderTop();
-    void setBorderBottom();
-    void setBorder();
+    void setBorderLeft(bool val);
+    void setBorderRight(bool val);
+    void setBorderTop(bool val);
+    void setBorderBottom(bool val);
+    void setBorder(bool val);
     void draw(OledHelper &oled);
 };
 
