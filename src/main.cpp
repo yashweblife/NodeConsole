@@ -26,6 +26,7 @@ static const unsigned char PROGMEM fighter[] =
      0b00110111, 0b11101100,
      0b00010000, 0b00001000};
 
+
 void setup()
 {
   Serial.begin(9600);
@@ -35,17 +36,14 @@ void setup()
     {
     }
   }
-  oled.clear();
   oled.rotate();
   pong.game(oled);
 }
 
 
+
 void loop()
 {
-  // int p1 = map(rhs.getValue(), 137, 238, 0, 128);
-  // int p2 = map(lhs.getValue(), 209, 6, 0, 64);
-  // oled.clear();
-  // oled.bitmap(p1, p2, 16, 16, fighter);
-  // oled.show();
+  int p1 = map(rhs.getValue(), 137, 238, 0, 128);
+  int p2 = map(lhs.getValue(), 209, 6, 0, 64);
 }
