@@ -16,6 +16,13 @@ class Text
     bool border_top;
     bool border_right;
     bool border_bottom;
+    int padding_left;
+    int padding_right;
+    int padding_top;
+    int padding_bottom;
+    bool fill;
+    bool underline;
+    bool center_cut;
     Text(String data);
     int getWidth();
     int getHeight();

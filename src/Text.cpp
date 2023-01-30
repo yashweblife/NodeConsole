@@ -73,7 +73,7 @@ void Text::setBorder(bool val)
 }
 void Text::draw(OledHelper &oled)
 {
-    oled.text(value, pos.x + (padding), pos.y + (padding), scale, false);
+    oled.text(value, pos.x + (padding), pos.y + (padding), scale, fill);
 
     if (border_left == true)
     {
@@ -91,5 +91,13 @@ void Text::draw(OledHelper &oled)
     {
         oled.line(pos.x, pos.y + size.y + (padding * 2), pos.x + size.x + (padding * 2), pos.y + size.y + (padding * 2));
     }
-    //oled.rect(pos.x, pos.y, size.x + (padding * 2), size.y + (padding * 2), false);
+    if(fill){
+    oled.rect(pos.x, pos.y, size.x + (padding * 2), size.y + (padding * 2), true);
+    }
+    if(underline){
+        oled.line(pos.x, pos.y + size.y, pos.x + size.x + (padding * 2), pos.y + size.y);
+    }
+    if(center_cut){
+        oled.line(pos.x, pos.y + size.y/2, pos.x + size.x + (padding * 2), pos.y + size.y/2);
+    }
 }
