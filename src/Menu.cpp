@@ -1,7 +1,8 @@
-#include<Arduino.h>
-#include<Menu.h>
+#include <Arduino.h>
+#include <Menu.h>
 
-Menu::Menu(String val, int index){
-    text=val;
-    this->index=index;
+Menu::Menu(String val, int index)
+{
+    text = val;
+    this->index = index;
 }

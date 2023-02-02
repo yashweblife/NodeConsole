@@ -6,7 +6,7 @@
 
 class Text
 {
-    public:
+public:
     String value;
     Vector pos;
     Vector size;

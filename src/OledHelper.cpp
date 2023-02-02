@@ -18,7 +18,7 @@ bool OledHelper::setup_oled()
 }
 /**
  * @brief Draw pixel on given spot
- * 
+ *
  * @param x int
  * @param y int
  */
@@ -28,11 +28,11 @@ void OledHelper::pix(int x, int y)
 }
 /**
  * @brief Draw line from x, y to x1,y1
- * 
- * @param x  int 
+ *
+ * @param x  int
  * @param y  int
- * @param x1 int 
- * @param y1 int 
+ * @param x1 int
+ * @param y1 int
  */
 void OledHelper::line(int x, int y, int x1, int y1)
 {
@@ -41,7 +41,7 @@ void OledHelper::line(int x, int y, int x1, int y1)
 
 /**
  * @brief Draw circle at x,y with a given radius and speciy wether to fill it or not
- * 
+ *
  * @param x int
  * @param y int
  * @param r int
@@ -60,7 +60,7 @@ void OledHelper::circle(int x, int y, int r, bool fill)
 }
 /**
  * @brief Draw rectangle at x,y with size of w,h and specify fill
- * 
+ *
  * @param x int
  * @param y int
  * @param w int
@@ -103,12 +103,12 @@ void OledHelper::text(String t, int x, int y, float s, bool fill)
 }
 /**
  * @brief Draw bitmap image onto screen at x,y
- * 
+ *
  * @param x int
  * @param y int
  * @param w int
  * @param h int
- * @param image const uint8_t 
+ * @param image const uint8_t
  */
 void OledHelper::bitmap(int x, int y, int w, int h, const uint8_t *image)
 {
@@ -116,7 +116,7 @@ void OledHelper::bitmap(int x, int y, int w, int h, const uint8_t *image)
 }
 /**
  * @brief Draw state of display
- * 
+ *
  */
 void OledHelper::show()
 {
@@ -124,7 +124,7 @@ void OledHelper::show()
 }
 /**
  * @brief Clear display
- * 
+ *
  */
 void OledHelper::clear()
 {
@@ -132,7 +132,7 @@ void OledHelper::clear()
 }
 /**
  * @brief set dim
- * 
+ *
  * @param val bool
  */
 void OledHelper::dim(bool val)
@@ -141,7 +141,7 @@ void OledHelper::dim(bool val)
 }
 /**
  * @brief Rotate the screen
- * 
+ *
  * @param val int
  */
 void OledHelper::rotate(int val)

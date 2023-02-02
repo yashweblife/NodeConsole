@@ -40,14 +40,13 @@ void setup()
     }
   }
   oled.rotate();
-  t1.setPos(2,2);
-  t2.setPos(2,12);
-  t3.setPos(2,24);
+  t1.setPos(2, 2);
+  t2.setPos(2, 12);
+  t3.setPos(2, 24);
 
   t1.setPadding(3);
   t2.setPadding(3);
   t3.setPadding(3);
-
 }
 
 void pong()
@@ -130,10 +129,10 @@ void test()
 void loop()
 {
   oled.clear();
-  int p1 = map(rhs.getValue(), 137, 238, 0,3);
-  t1.setBorderLeft(p1==0);
-  t2.setBorderLeft(p1==1);
-  t3.setBorderLeft(p1==2);
+  int p1 = map(rhs.getValue(), 137, 238, 0, 3);
+  t1.setBorderLeft(p1 == 0);
+  t2.setBorderLeft(p1 == 1);
+  t3.setBorderLeft(p1 == 2);
   t1.draw(oled);
   t2.draw(oled);
   t3.draw(oled);

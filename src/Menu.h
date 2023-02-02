@@ -1,12 +1,13 @@
 #ifndef Menu_h
 #define Menu_h
 #include <Arduino.h>
-class Menu{
-    public:
+class Menu
+{
+public:
     Menu(String val, int index);
-    int index=0;
+    int index = 0;
     bool selected = false;
-    String text="";
+    String text = "";
 };
 
 #endif

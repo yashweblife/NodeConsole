@@ -91,13 +91,16 @@ void Text::draw(OledHelper &oled)
     {
         oled.line(pos.x, pos.y + size.y + (padding * 2), pos.x + size.x + (padding * 2), pos.y + size.y + (padding * 2));
     }
-    if(fill){
-    oled.rect(pos.x, pos.y, size.x + (padding * 2), size.y + (padding * 2), true);
+    if (fill)
+    {
+        oled.rect(pos.x, pos.y, size.x + (padding * 2), size.y + (padding * 2), true);
     }
-    if(underline){
+    if (underline)
+    {
         oled.line(pos.x, pos.y + size.y, pos.x + size.x + (padding * 2), pos.y + size.y);
     }
-    if(center_cut){
-        oled.line(pos.x, pos.y + size.y/2, pos.x + size.x + (padding * 2), pos.y + size.y/2);
+    if (center_cut)
+    {
+        oled.line(pos.x, pos.y + size.y / 2, pos.x + size.x + (padding * 2), pos.y + size.y / 2);
     }
 }
