@@ -10,7 +10,7 @@
         width: 300px;
         display: flex;
       }
-      div {
+      div.box {
         border: 1px solid rgb(75, 75, 75);
         border-radius: 0.2em;
         width: 1em;
@@ -22,14 +22,21 @@
       .selected:hover {
         background-color: rgb(59, 42, 42);
       }
-      div:hover {
+      div.box:hover {
         background-color: rgb(100, 100, 100);
       }
     </style>
   </head>
   <body>
-    <button id="btn">Get Data</button>
-    <button id="btn-1">Clear</button>
+    <main id="container">
+      <div class="header">
+
+      </div>
+      <div class="content">
+        <button id="btn">Get Data</button>
+        <button id="btn-1">Clear</button>
+      </div>
+    </main>
     <script src="./index.js"></script>
   </body>
 </html>
