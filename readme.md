@@ -42,6 +42,24 @@ Probably the most important functional library in this project.
 This handles stuff like position, velocity and acceleration data
 It can also be used for other things like holding size data.
 
+```C++
+#include<Vector.h>
+void test(){
+    Vector vec1(0,0,0); //Vector takes 3 arguments: x,y,z
+    Vector vec2(0,0,0);
+    //Add and subtract 2 Vectors
+    vec1.add(vec2);
+    vec1.sub(vec2);
+    //Get Magnitude of vector
+    float mag = vec1.getMag();
+    //Set the vector to its unit form
+    vec1.normalize();
+    //Multiply a scalar to the vector
+    vec1.scalar(mag);   //Multiplying a unit vector with its provious magnitude will simply give the original vector
+    float dist = vec1.distance(vec2);    //Get the distance between 2 vectors
+}
+```
+
 #### Ball
 
 The simplest thing you should be able to do in this project is create a ball.
@@ -79,3 +97,5 @@ void loop(){
 }
 
 ```
+
+ 
