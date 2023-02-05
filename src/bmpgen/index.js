@@ -2,6 +2,7 @@ class Cell {
     selected = false;
     dom = document.createElement("div")
     constructor() {
+        this.dom.classList.add('box');
         this.dom.addEventListener('click', () => {
             if (this.selected == true) {
                 this.selected = false;
@@ -63,7 +64,7 @@ class Grid {
     }
 }
 
-const grid = new Grid()
+const grid = new Grid(document.querySelector('.header'))
 
 document.querySelector('#btn').addEventListener('click', (e) => {
     console.log(grid.getBit());
